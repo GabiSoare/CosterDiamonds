@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Coster Diamonds Survey</title>
+
+	</head>
+    <body>
+    	<div id="bgd" class="c" align="center"><br>
+	    	<div class="survey" align="center">
+				<form name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
+					<input  id="country" type="text" style="display: none;" placeholder="Country">
+			      	<div id="divName">
+			      		<input id="fname" type="text" placeholder="First Name" ><br><br><br>
+			      		<input id="lname" type="text" placeholder="Last Name" >
+			      	</div>
+			      	<select id="gender" style="width: 350px;height: 50px; font-size: xx-large; top:-50px;position:absolute">
+				      	<option value="">Gender</option>	
+						<option value="1">Male</option>
+						<option value="2">Female</option>
+					</select>
+					<input id="datebirth" type="text" placeholder="YYYY-MM-DD" style="display: none"/>
+			      	<input id="email" type="text" name="email" style="display: none" placeholder="E-Mail">
+			      	<div id="divNP" style="position: absolute ;top: 600px;">
+			      		<img id="previous" onclick="p()" src="img/previous.png" style="margin-left: -400px;position: absolute;" />
+			      		<img id="next" onclick="n()" src="img/next.png" style="margin-left: 550px;position: absolute" />
+			      		<img id="submit" src="img/submit.png" onclick="set();n();" style="cursor: pointer;width: 250px;height: 80px;margin-left: 50px;display: none"/>
+			      		<img id="quit" src="img/submit.png" onclick="exitFromApp()" style="cursor: pointer;width: 250px;height: 80px;margin-left: 50px;display: none"/>
+			      		
+			      	</div> 		
+				</form>
+			</div>	
+        </div>
+       
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <script>
+
+        </script>
+		<script>
+		var flag = 0;
+        function set(){
+	       	var c = document.getElementById("country").value;
+	       	var f = document.getElementById("fname").value;
+	       	var l = document.getElementById("lname").value;
+	       	var g = document.getElementById("gender").options[document.getElementById("gender").selectedIndex].text;
+	       	var b = document.getElementById("datebirth").value;
+	       	var e = document.getElementById("email").value;		 
+    		b = '2014-04-20';
+    		if(c=="" || f=="" || l==""){
+    			alert("Please fill in all fields.");
+    			return false;
+    		}
+    		if(g=="Gender"){
+    			alert("Please select your Gender.");
+    			return false;    			
+    		}
+    		year = parseInt(b);
+    		month = parseInt(b[5]+b[6]);
+    		day = parseInt(b[8]+b[9]);
+    		if(b[4]!='-' || b[7]!='-' || year<1900 || month>12 || day>31){
+    			alert("Please fill in Date of Birth correctly.");
+    			return false;    	    			
+    			
+    		}
+			var x=document.forms["myform"]["email"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+			  {
+			  alert("Not a valid Email Address");
+			  return false;
+			  }    		
+			flag = 1;  
+        	sendData(f,l,e,g,b,c);
+
+        }
+        	
+		function sendData(first,last,email,gender,birth,country)
+			{
+
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			
+			xmlhttp.open("GET","http://embeddedsoft.ro/test/getuser.php?f="+encodeURIComponent(first)+"&l="+encodeURIComponent(last)+"&e="+encodeURIComponent(email)+"&g="+encodeURIComponent(gender)+"&b="+encodeURIComponent(birth)+"&c="+encodeURIComponent(country),true);
+			xmlhttp.send();
+		}
+		
+
+		</script>
+        <script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
