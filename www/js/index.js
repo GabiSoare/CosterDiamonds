@@ -93,7 +93,8 @@ function n(){
 		if(flag == 1){
 			bgd.style.background = 'url("img/thankyou.png")';
 			prev.style.display = submit.style.display = email.style.display="none"; 
-			quit.style.display ='block';
+//			quit.style.display ='block';
+			setTimeout(exitFromApp,5000);
 		}else
 			state --;
 			break;									
