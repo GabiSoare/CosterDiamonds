@@ -12,7 +12,7 @@
     <body>
     	<div id="bgd" class="c" align="center"><br>
 	    	<div class="survey" align="center">
-				<form name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
+				<div name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
 					<input  id="country" type="text" style="display: none;" placeholder="Country">
 			      	<div id="divName">
 			      		<input id="fname" type="text" placeholder="First Name" ><br><br><br>
@@ -31,7 +31,7 @@
 			      		<img id="submit" src="img/submit.png" onclick="set();n();" style="cursor: pointer;width: 250px;height: 80px;margin-left: 50px;display: none"/>
 			      				
 			      	</div> 		
-				</form>
+				</div>
 			</div>	
         </div>
        
@@ -47,7 +47,7 @@
 		function getDate(){
 			//Get Current Date
 			var currentdate = new Date(); 
-			return date = currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
+			return date = currentdate.getHours()+":"+currentdate.getMinutes()+"   "+ currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
 		}
 		var flag = 0;
         function set(){
