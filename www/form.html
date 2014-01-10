@@ -12,7 +12,7 @@
     <body>
     	<div id="bgd" class="c" align="center"><br>
 	    	<div class="survey" align="center">
-				<form name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
+				<div name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
 					<input  id="country" type="text" style="display: none;" placeholder="Country">
 			      	<div id="divName">
 			      		<input id="fname" type="text" placeholder="First Name" ><br><br><br>
@@ -29,10 +29,9 @@
 			      		<img id="previous" onclick="p()" src="img/previous.png" style="margin-left: -400px;position: absolute;" />
 			      		<img id="next" onclick="n()" src="img/next.png" style="margin-left: 550px;position: absolute" />
 			      		<img id="submit" src="img/submit.png" onclick="set();n();" style="cursor: pointer;width: 250px;height: 80px;margin-left: 50px;display: none"/>
-			      		<img id="quit" src="img/submit.png" onclick="exitFromApp()" style="display: none; cursor: pointer;width: 250px;height: 80px;margin-left: 50px;"/>
-			      		
+			      				
 			      	</div> 		
-				</form>
+				</div>
 			</div>	
         </div>
        
@@ -68,7 +67,7 @@
     			alert("Please select your Gender.");
     			return false;    			
     		}
-			var x=document.forms["myform"]["email"].value;
+			var x=document.getElementById("email").value;	
 			var atpos=x.indexOf("@");
 			var dotpos=x.lastIndexOf(".");
 			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
@@ -93,7 +92,7 @@
 			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 			  }
 			
-			xmlhttp.open("GET","http://costerdiamonds.com/tablet/getuser.php?f="+encodeURIComponent(first)+"&l="+encodeURIComponent(last)+"&e="+encodeURIComponent(email)+"&g="+encodeURIComponent(gender)+"&b="+encodeURIComponent(birth)+"&c="+encodeURIComponent(country),true);
+			xmlhttp.open("GET","http://embeddedsoft.ro/test/getuser.php?f="+encodeURIComponent(first)+"&l="+encodeURIComponent(last)+"&e="+encodeURIComponent(email)+"&g="+encodeURIComponent(gender)+"&b="+encodeURIComponent(birth)+"&c="+encodeURIComponent(country),true);
 			xmlhttp.send();
 		}
 		

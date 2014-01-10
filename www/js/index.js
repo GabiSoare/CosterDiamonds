@@ -58,7 +58,6 @@ var next = document.getElementById("next");
 var divNP = document.getElementById("divNP");
 var email= document.getElementById("email");
 var submit= document.getElementById("submit");
-var quit = document.getElementById("quit");
 
 prev.style.display ="none";
 
@@ -93,7 +92,6 @@ function n(){
 		if(flag == 1){
 			bgd.style.background = 'url("img/thankyou.png")';
 			prev.style.display = submit.style.display = email.style.display="none"; 
-//			quit.style.display ='block';
 			setTimeout(exitFromApp,5000);
 		}else
 			state --;
