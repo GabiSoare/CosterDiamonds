@@ -44,6 +44,12 @@
 
         </script>
 		<script>
+		
+		function getDate(){
+			//Get Current Date
+			var currentdate = new Date(); 
+			return date = currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
+		}
 		var flag = 0;
         function set(){
 	       	var c = document.getElementById("country").value;
@@ -52,7 +58,8 @@
 	       	var g = document.getElementById("gender").options[document.getElementById("gender").selectedIndex].text;
 	       	var b = document.getElementById("datebirth").value;
 	       	var e = document.getElementById("email").value;		 
-    		b = '2014-04-20';
+    		
+    		b = getDate();
     		if(c=="" || f=="" || l==""){
     			alert("Please fill in all fields.");
     			return false;
@@ -60,14 +67,6 @@
     		if(g=="Gender"){
     			alert("Please select your Gender.");
     			return false;    			
-    		}
-    		year = parseInt(b);
-    		month = parseInt(b[5]+b[6]);
-    		day = parseInt(b[8]+b[9]);
-    		if(b[4]!='-' || b[7]!='-' || year<1900 || month>12 || day>31){
-    			alert("Please fill in Date of Birth correctly.");
-    			return false;    	    			
-    			
     		}
 			var x=document.forms["myform"]["email"].value;
 			var atpos=x.indexOf("@");
