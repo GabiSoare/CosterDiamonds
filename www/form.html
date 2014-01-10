@@ -12,7 +12,7 @@
     <body>
     	<div id="bgd" class="c" align="center"><br>
 	    	<div class="survey" align="center">
-				<div name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
+				<form name="myform" class="form" style="margin-top: 300px;padding-left: 50px">
 					<input  id="country" type="text" style="display: none;" placeholder="Country">
 			      	<div id="divName">
 			      		<input id="fname" type="text" placeholder="First Name" ><br><br><br>
@@ -29,8 +29,9 @@
 			      		<img id="previous" onclick="p()" src="img/previous.png" style="margin-left: -400px;position: absolute;" />
 			      		<img id="next" onclick="n()" src="img/next.png" style="margin-left: 550px;position: absolute" />
 			      		<img id="submit" src="img/submit.png" onclick="set();n();" style="cursor: pointer;width: 250px;height: 80px;margin-left: 50px;display: none"/>
+			      				
 			      	</div> 		
-				</div>
+				</form>
 			</div>	
         </div>
        
@@ -46,7 +47,7 @@
 		function getDate(){
 			//Get Current Date
 			var currentdate = new Date(); 
-			return date = currentdate.getHours()+":"+currentdate.getMinutes()+"    "+currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
+			return date = currentdate.getDate()+"-"+ (currentdate.getMonth()+1)+ "-" + currentdate.getFullYear();
 		}
 		var flag = 0;
         function set(){
@@ -91,7 +92,7 @@
 			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 			  }
 			
-			xmlhttp.open("GET","http://costerdiamonds.com/tablet/getuser.php?f="+encodeURIComponent(first)+"&l="+encodeURIComponent(last)+"&e="+encodeURIComponent(email)+"&g="+encodeURIComponent(gender)+"&b="+encodeURIComponent(birth)+"&c="+encodeURIComponent(country),true);
+			xmlhttp.open("GET","http://embeddedsoft.ro/test/getuser.php?f="+encodeURIComponent(first)+"&l="+encodeURIComponent(last)+"&e="+encodeURIComponent(email)+"&g="+encodeURIComponent(gender)+"&b="+encodeURIComponent(birth)+"&c="+encodeURIComponent(country),true);
 			xmlhttp.send();
 		}
 		
